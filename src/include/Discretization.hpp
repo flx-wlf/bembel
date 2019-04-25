@@ -44,7 +44,8 @@ class Discretization {
     return;
   }
   int get_num_dofs() { return _disc.real_na; }
-
+  int get_num_elem() { return _disc.mesh->nf;}
+  int get_M() { return _msh.get_mesh().M;}
  private:
   discretization _disc;
   Geometry _geo;

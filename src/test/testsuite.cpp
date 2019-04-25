@@ -16,7 +16,7 @@ using namespace Bembel::Test;
  */
 int main() {
   int done = 0;
-  int testnum = 7;
+  int testnum = 8;
 
   std::cout
 
@@ -59,7 +59,8 @@ int main() {
   failcount += run_test("div-conforming", ++done, testnum, test_divconf());
   failcount +=
       run_test("c++ wrappers", ++done, testnum, test_HMatrixWrappert());
-
+  failcount +=
+      run_test("denseAssembly()", ++done, testnum, test_DenseAssembly());
   assert(failcount == 0 && "A test failed, see console output!");
 
   if (failcount == 0) {

@@ -65,6 +65,7 @@ int test_phiphi();
 int test_divdiv();
 int test_divconf();
 int test_HMatrixWrappert();
+int test_DenseAssembly();
 }  // namespace Test
 }  // namespace Bembel
 #endif

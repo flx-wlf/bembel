@@ -28,18 +28,21 @@ template <>
 struct PDEproblemTraits<LaplaceSingle> {
   typedef Eigen::VectorXd EigenType;
   typedef Eigen::VectorXd::Scalar Scalar;
+  static constexpr int dimFunctions = 1;
 };
 
 template <>
 struct PDEproblemTraits<HelmholtzSingle> {
   typedef Eigen::VectorXcd EigenType;
   typedef Eigen::VectorXcd::Scalar Scalar;
+  static constexpr int dimFunctions = 1;
 };
 
 template <>
 struct PDEproblemTraits<MaxwellSingle> {
   typedef Eigen::VectorXcd EigenType;
   typedef Eigen::VectorXcd::Scalar Scalar;
+  static constexpr int dimFunctions = 2;
 };
 
 template <typename Derived>
@@ -51,6 +54,7 @@ struct PDEproblemBase {
       void *H, const typename PDEproblemTraits<Derived>::EigenType &x) const {
     return static_cast<const Derived *>(this)->MatVecImplementation(H, x);
   };
+  pdeproblem& get_pde() { return _pde; }
   pdeproblem _pde;
 };
 

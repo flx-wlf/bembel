@@ -168,6 +168,7 @@ add_library(bemtest STATIC
   src/test/test_divdiv
   src/test/test_geom_sphere
   src/test/test_geom_screen
+  src/test/test_DenseAssembly
 )
 
 add_library(spltest STATIC 
