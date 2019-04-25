@@ -5,3 +5,4 @@ This is my private fork of Bembel, for further information see [the official rep
 This branch contains the following modifications
 
 * Routines for the assembly of the system matrix as `Eigen::Matrix<T,-1,-1>`, i.e., as dense matrices.
+* An executable to compute rates of convergence w.r.t. `p`.
