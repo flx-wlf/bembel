@@ -36,7 +36,7 @@ int main() {
         };
 
     std::cout << "\n+ + + + + + + + + + + + + + + + + + Sphere + + + + + + + + + + + + + + + + + +\n";
-    Util::Logger<10> log("test/Maxwell_Poly_Sphere.log");
+    Util::Logger<10> log("ars_sphere.log");
     log.both("P", "t_mat", "t_solve", "t_tot", "DOFs", "error");
 
     for (auto P : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}) {
@@ -53,7 +53,7 @@ int main() {
         Eigen::MatrixXcd pot = Sol::evalSolution(gridpoints, rho, myDisc);
         const double timeTot = sw.stop();
         if (P == 4)
-          Bembel::Vis::plotDiscretizationToVTK(myDisc, rho, "ARS_sphere_surfcur.vtk",
+          Bembel::Vis::plotDiscretizationToVTK(myDisc, rho, "ars_sphere.vtk",
                                                7);
         log.both(
             P, timeMat, timeSolve, timeTot, myDisc.get_num_dofs(),
@@ -71,7 +71,7 @@ int main() {
           const Eigen::Vector3d length(0, 0, 0.1);
           return Data::Dipole(pt, kappa, position, length);
         };
-    Util::Logger<10> log("test/Maxwell_Poly_Ship.log");
+    Util::Logger<10> log("ars_ship.log");
     std::cout << "\n+ + + + + + + + + + + + + + + + + + Ship + + + + + + + + + + + + + + + + + +\n";
     log.both("P", "t_mat", "t_solve", "t_tot", "DOFs", "error");
     for (auto P : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) {
@@ -88,7 +88,7 @@ int main() {
         Eigen::MatrixXcd pot = Sol::evalSolution(gridpoints, rho, myDisc);
         const double timeTot = sw.stop();
         if (P == 4){
-          Bembel::Vis::plotDiscretizationToVTK(myDisc, rho, "ARS_ship_surfcur.vtk", 7);
+          Bembel::Vis::plotDiscretizationToVTK(myDisc, rho, "ars_ship.vtk", 7);
         }
         log.both(
             P, timeMat, timeSolve, timeTot, myDisc.get_num_dofs(),
