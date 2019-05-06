@@ -188,18 +188,6 @@ target_link_libraries(bem_testsuite.out bem bemtest)
 add_executable(spline_testsuite.out src/test/spline/testsuite)
 target_link_libraries(spline_testsuite.out bem spltest)
 
-add_executable(LaplaceSingle.out src/examples/example_LaplaceSingle)
-target_link_libraries(LaplaceSingle.out bem)
-
-add_executable(HelmholtzSingle.out src/examples/example_HelmholtzSingle)
-target_link_libraries(HelmholtzSingle.out bem)
-
-add_executable(MaxwellSingle.out src/examples/example_MaxwellSingle)
-target_link_libraries(MaxwellSingle.out bem)
-
-add_executable(Visualization.out src/examples/example_Visualization)
-target_link_libraries(Visualization.out bem)
-
-add_executable(VisualizeDatfile.out src/bemlibC/vtkMaker)
-target_link_libraries(VisualizeDatfile.out bem)
+add_executable(TAP.out src/examples/example_TAP)
+target_link_libraries(TAP.out bem)
 
