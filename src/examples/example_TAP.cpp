@@ -26,11 +26,7 @@
 #include "Stopwatch.hpp"
 #include "Visualize.hpp"
 
-/**
- *  @brief         This is a demonstration how to use the high-level classes &
- * templates of bembel to run a Maxwell-BEM based on the EFIE.
- *
- */
+
 int main() {
   using namespace Bembel;
 
@@ -100,7 +96,6 @@ int main() {
         {  // Higher Regular Functions
           Discretization<MaxwellSingle> myDisc(myGeom, myMax, P, 1, M);
           DOFS_B = myDisc.get_num_dofs();
-          // Build right-hand side
           Eigen::VectorXcd rhs = Rhs::computeRhs(myDisc, fun);
 
           sw.start();
@@ -157,7 +152,6 @@ int main() {
               maxPointwiseError(pot, gridpoints, fun, myMax.get_wavenumber());
         }
 
-        // Write data to log-file
         log.both(M, timeMat_B, timeMat_R, timeSolve_B, timeSolve_R, timeTot_B,
                  timeTot_R, DOFS_B, DOFS_R, err_B, err_R, iter_B, iter_R);
       }
